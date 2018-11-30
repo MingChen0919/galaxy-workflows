@@ -5,7 +5,7 @@
     "name": "mapping-hisat2-single-end", 
     "steps": {
         "0": {
-            "annotation": "<ul>\n<li>Option 1: input a <b>fasta<\/b> file which contains reference genome sequences<\/li>\n<li>Option 2: input a <b>txt<\/b> file which has a single URL to your reference genome sequences file. Valid file format include <b>.fasta<\/b>, <b>.fa.gz<\/b>, and <b>.2bit<\/b>.<\/li>\n<\/ul>", 
+            "annotation": "At this step you must provide the reference genome sequence to which RNA-seq reads will be aligned.  There are two ways to provide this:\n<ul>\n<li>Option 1: input a <b>FASTA<\/b> file which contains reference genome sequences<\/li>\n<li>Option 2: input a <b>text<\/b> file which contains a single URL where the reference genome sequences file is located.<\/li>\n<\/ul>", 
             "content_id": null, 
             "errors": null, 
             "id": 0, 
@@ -26,7 +26,7 @@
             "workflow_outputs": []
         }, 
         "1": {
-            "annotation": "<ul><li>Input one or more <b>single-end reads FASTQ<\/b> files.<\/li><\/ul>", 
+            "annotation": "Here you must provide your RNA-Seq files. This workflow only supports non-paired (single-end) data.  Use the form below to input one or more <b>single-end reads FASTQ<\/b> files.<\/li><\/ul>", 
             "content_id": null, 
             "errors": null, 
             "id": 1, 
@@ -36,8 +36,8 @@
             "name": "Input dataset collection", 
             "outputs": [], 
             "position": {
-                "left": 200, 
-                "top": 302
+                "left": 201, 
+                "top": 305
             }, 
             "tool_id": null, 
             "tool_state": "{\"collection_type\": \"list\"}", 
@@ -47,7 +47,7 @@
             "workflow_outputs": []
         }, 
         "2": {
-            "annotation": "<ul><li>At this step, the step 2 input is imported to the workflow. If the step 2 input is a fasta file, you can ignore the <b>URL fasta format<\/b> input. If the step 2 is a txt file, you need to specify the file format that the URL directs to.<\/li><\/ul>", 
+            "annotation": "If you chose the second option when uploading the file for your genome sequence and the file contains a URL then you must indicate the format of the remote file. If the file is compressed and has a .gz or .2bit extension then select it from the list below.  If you uploaded a FASTA file directly then you can move on to the next step.", 
             "content_id": "testtoolshed.g2.bx.psu.edu/repos/mingchen0919/aurora_fasta_importer/aurora_fasta_importer_report/1.0.0", 
             "errors": null, 
             "id": 2, 
@@ -76,13 +76,13 @@
                 }
             ], 
             "position": {
-                "left": 475, 
+                "left": 489, 
                 "top": 200
             }, 
             "post_job_actions": {}, 
             "tool_id": "testtoolshed.g2.bx.psu.edu/repos/mingchen0919/aurora_fasta_importer/aurora_fasta_importer_report/1.0.0", 
             "tool_shed_repository": {
-                "changeset_revision": "63e9ce43c1ee", 
+                "changeset_revision": "a05a0505bb4a", 
                 "name": "aurora_fasta_importer", 
                 "owner": "mingchen0919", 
                 "tool_shed": "testtoolshed.g2.bx.psu.edu"
@@ -94,8 +94,8 @@
             "workflow_outputs": []
         }, 
         "3": {
-            "annotation": "<ul>\n<li>The <b>FASTQ Groomer<\/b> tool is used to verify and convert between the known FASTQ variants. The data created by this tool is guaranteed to conform to the target variant specified by the user, including the enforcement of quality score minimums and maximums.<\/li>\n<ul>", 
-            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastq_groomer/fastq_groomer/1.0.4", 
+            "annotation": "Here, the <b>FASTQ Groomer<\/b> tool is used to verify and convert between the known FASTQ variants  The data created by this tool is guaranteed to conform to the target variant specified by the user, including the enforcement of quality score minimums and maximums.", 
+            "content_id": "testtoolshed.g2.bx.psu.edu/repos/devteam/fastq_groomer/fastq_groomer/1.0.4", 
             "errors": null, 
             "id": 3, 
             "input_connections": {
@@ -119,26 +119,26 @@
                 }
             ], 
             "position": {
-                "left": 475, 
-                "top": 340
+                "left": 489, 
+                "top": 344
             }, 
             "post_job_actions": {}, 
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/fastq_groomer/fastq_groomer/1.0.4", 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/devteam/fastq_groomer/fastq_groomer/1.0.4", 
             "tool_shed_repository": {
-                "changeset_revision": "e4d28c94242d", 
+                "changeset_revision": "5598a9614070", 
                 "name": "fastq_groomer", 
                 "owner": "devteam", 
-                "tool_shed": "toolshed.g2.bx.psu.edu"
+                "tool_shed": "testtoolshed.g2.bx.psu.edu"
             }, 
             "tool_state": "{\"__page__\": null, \"input_type\": \"\\\"sanger\\\"\", \"__rerun_remap_job_id__\": null, \"options_type\": \"{\\\"__current_case__\\\": 0, \\\"options_type_selector\\\": \\\"basic\\\"}\", \"input_file\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
             "tool_version": "1.0.4", 
             "type": "tool", 
-            "uuid": "299d1913-e695-4602-b66a-550ecab54cbb", 
+            "uuid": "f86c1c8b-da28-4223-ad29-ce4bce58164e", 
             "workflow_outputs": []
         }, 
         "4": {
-            "annotation": "<b>HISAT2<\/b> is a fast and sensitive alignment program for mapping next-generation sequencing reads (both DNA and RNA) to a population of human genomes (as well as to a single reference genome). It uses a graph-based alignment and has succeeded HISAT and TOPHAT2.", 
-            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/hisat2/hisat2/2.1.0", 
+            "annotation": "This step uses <b>HISAT2<\/b> to perform RNA-seq alignments to the genome reference sequence. It is a fast and sensitive alignment program and uses a graph-based alignment and has succeeded HISAT and TOPHAT2.  This tool has a variety of options, however most have been pre-selected for this type of analysis.", 
+            "content_id": "testtoolshed.g2.bx.psu.edu/repos/iuc/hisat2/hisat2/2.1.0+galaxy2", 
             "errors": null, 
             "id": 4, 
             "input_connections": {
@@ -190,26 +190,26 @@
                 }
             ], 
             "position": {
-                "left": 803, 
-                "top": 200
+                "left": 794, 
+                "top": 144
             }, 
             "post_job_actions": {}, 
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/hisat2/hisat2/2.1.0", 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/iuc/hisat2/hisat2/2.1.0+galaxy2", 
             "tool_shed_repository": {
-                "changeset_revision": "40e1083a4430", 
+                "changeset_revision": "cc5cf670ea90", 
                 "name": "hisat2", 
                 "owner": "iuc", 
-                "tool_shed": "toolshed.g2.bx.psu.edu"
+                "tool_shed": "testtoolshed.g2.bx.psu.edu"
             }, 
             "tool_state": "{\"adv\": \"{\\\"alignment_options\\\": {\\\"__current_case__\\\": 0, \\\"alignment_options_selector\\\": \\\"defaults\\\"}, \\\"output_options\\\": {\\\"output_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}, \\\"other_options\\\": {\\\"other_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}, \\\"scoring_options\\\": {\\\"scoring_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}, \\\"spliced_options\\\": {\\\"spliced_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}, \\\"reporting_options\\\": {\\\"reporting_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}, \\\"input_options\\\": {\\\"input_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}}\", \"__page__\": null, \"sum\": \"{\\\"new_summary\\\": \\\"false\\\", \\\"summary_file\\\": \\\"false\\\"}\", \"library\": \"{\\\"rna_strandness\\\": \\\"\\\", \\\"type\\\": \\\"single\\\", \\\"__current_case__\\\": 0, \\\"input_1\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}\", \"reference_genome\": \"{\\\"source\\\": \\\"history\\\", \\\"history_item\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1}\", \"__rerun_remap_job_id__\": null}", 
-            "tool_version": "2.1.0", 
+            "tool_version": "2.1.0+galaxy2", 
             "type": "tool", 
             "uuid": "26b7457f-7a42-4f65-bd69-63965e12724f", 
             "workflow_outputs": []
         }, 
         "5": {
-            "annotation": "<ul><li><b>samtools's flagstat<\/b> tool generate descriptive stats for aligned reads in BAM format.<\/li><\/ul>", 
-            "content_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtools_flagstat/samtools_flagstat/2.0.1", 
+            "annotation": "Finally, <b>samtools's flagstat<\/b> tool is used to generates a descriptive report from the alignment process.  It has no settings.  You may continue to the next step.", 
+            "content_id": "testtoolshed.g2.bx.psu.edu/repos/devteam/samtools_flagstat/samtools_flagstat/2.0.1", 
             "errors": null, 
             "id": 5, 
             "input_connections": {
@@ -233,16 +233,16 @@
                 }
             ], 
             "position": {
-                "left": 1131, 
+                "left": 1145, 
                 "top": 200
             }, 
             "post_job_actions": {}, 
-            "tool_id": "toolshed.g2.bx.psu.edu/repos/devteam/samtools_flagstat/samtools_flagstat/2.0.1", 
+            "tool_id": "testtoolshed.g2.bx.psu.edu/repos/devteam/samtools_flagstat/samtools_flagstat/2.0.1", 
             "tool_shed_repository": {
-                "changeset_revision": "cc61ade70eb8", 
+                "changeset_revision": "28eb6a47be96", 
                 "name": "samtools_flagstat", 
                 "owner": "devteam", 
-                "tool_shed": "toolshed.g2.bx.psu.edu"
+                "tool_shed": "testtoolshed.g2.bx.psu.edu"
             }, 
             "tool_state": "{\"__page__\": null, \"__rerun_remap_job_id__\": null, \"input1\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\"}", 
             "tool_version": "2.0.1", 
@@ -252,5 +252,5 @@
         }
     }, 
     "tags": [], 
-    "uuid": "cc945074-e34d-462a-837e-872e3d9e8bfa"
+    "uuid": "7b57d60a-74ab-422b-862a-cdd461bb7a94"
 }
